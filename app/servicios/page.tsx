@@ -129,7 +129,7 @@ export default function Servicios() {
             <motion.h1 
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, ease: "power3.out" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
               className="text-6xl md:text-8xl font-bold mb-6"
             >
               Nuestros <span className="text-blue-400">Servicios</span>
@@ -138,7 +138,7 @@ export default function Servicios() {
             <motion.p 
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: "power3.out" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
               className="text-xl md:text-2xl text-gray-300 leading-relaxed"
             >
               Servicios integrales para construir tu hogar ideal en El Salvador, 

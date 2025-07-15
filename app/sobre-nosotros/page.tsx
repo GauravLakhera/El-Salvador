@@ -58,7 +58,7 @@ export default function SobreNosotros() {
             <motion.h1 
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, ease: "power3.out" }}
+              transition={{ duration: 1.2, ease: "easeInOut" }}
               className="text-6xl md:text-8xl font-bold mb-6"
             >
               <span className="text-blue-400">Nuestra</span> Historia
@@ -67,7 +67,7 @@ export default function SobreNosotros() {
             <motion.p 
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3, ease: "power3.out" }}
+              transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
               className="text-xl md:text-2xl text-gray-300 leading-relaxed"
             >
               Más de 15 años construyendo sueños y conectando corazones 
