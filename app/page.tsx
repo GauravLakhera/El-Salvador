@@ -191,7 +191,7 @@ export default function HomePage() {
                 </motion.h1>
                 <div className="mt-5 flex flex-col">
                   <motion.p
-                    className="hero-title text-xl text-gray-600"
+                    className="hero-title font-quicksand text-xl text-gray-600"
                     initial={{ opacity: 0 }}
                   >
                     Expertos en construcción de casas personalizadas. Desde la
@@ -294,7 +294,7 @@ export default function HomePage() {
                       <h3 className="text-lg font-semibold text-white">
                         {servicio.title}
                       </h3>
-                      <p className="text-xs text-gray-200 mt-1">
+                      <p className="text-xs text-gray-200 mt-1 font-quicksand">
                         {servicio.description}
                       </p>
                     </div>

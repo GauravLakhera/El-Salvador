@@ -39,10 +39,10 @@ export default function AboutUs() {
         </div>
 
         <div className="pt-2"> {/* Added padding top to align text better */}
-          <h3 className="text-2xl font-semibold mb-4 text-gray-800">
+          <h3 className="text-2xl  mb-4 text-gray-800">
             Remodelador galardonado cerca de ti
           </h3>
-          <p className="text-gray-700 mb-4 leading-relaxed">
+          <p className="text-gray-700 mb-4 font-quicksand font-normal leading-relaxed">
             El Salvador Constructores, S.A. de C.V. es una empresa líder en el
             sector de la construcción, dedicada a transformar sueños en
             realidades tangibles. Con años de experiencia en la construcción de
@@ -50,13 +50,13 @@ export default function AboutUs() {
             clientes soluciones completas que combinan arquitectura moderna,
             calidad y eficiencia.
           </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
+          <p className="text-gray-700 mb-4 font-quicksand font-normal leading-relaxed">
             Innovamos constantemente y apostamos por la tecnología limpia,
             ofreciendo instalación de paneles solares de última generación,
             ayudando a nuestros clientes a reducir costos energéticos y
             contribuir con el medio ambiente.
           </p>
-          <p className="text-gray-700 mb-6 leading-relaxed">
+          <p className="text-gray-700 mb-6 font-quicksand font-normal leading-relaxed">
             En El Salvador Constructores nos mueve la pasión por construir el
             futuro. Tu visión es nuestra misión: edificamos el futuro que
             imaginas.

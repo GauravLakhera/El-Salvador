@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Quicksand:wght@300;400;500;600;700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -78,5 +79,28 @@
   }
   body {
     @apply bg-background text-foreground;
+      font-family: 'Quicksand', sans-serif;
   }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 2px;
+}
+
+::-webkit-scrollbar-track {
+  background: white;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 1px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
 }

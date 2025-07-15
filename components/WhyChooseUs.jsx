@@ -86,7 +86,7 @@ const WhyChooseUs = () => {
 
           {/* Right content - bullets */}
           <div className="space-y-4 text-base ">
-            <ul className="list-disc pl-5 space-y-3">
+            <ul className="list-disc pl-5 space-y-3 font-quicksand">
               <li>Gestión completa del proyecto de principio a fin.</li>
               <li>
                 Diseño 3D y vistas previas en Realidad Virtual para mayor
@@ -129,7 +129,7 @@ const WhyChooseUs = () => {
               <h3 className="text-xl text-black font-semibold mb-3">
                 {item.title}
               </h3>
-              <p className="text-gray-500 text-base">{item.description}</p>
+              <p className="text-gray-500 text-base font-quicksand font-semibold">{item.description}</p>
             </div>
           ))}
         </div>
