@@ -90,9 +90,9 @@ export default function Contacto() {
   return (
     <SmoothScroll>
       <CustomCursor />
-      <Navigation />
+   
       
-      <main className="bg-black text-white">
+      <main className="bg-blue-50 text-black">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -101,7 +101,7 @@ export default function Contacto() {
               alt="Contacto"
               className="w-full h-full"
             />
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
           
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -118,7 +118,7 @@ export default function Contacto() {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed"
+              className="text-xl md:text-2xl text-gray-100 leading-relaxed"
             >
               Estamos listos para ayudarte a construir la casa de tus sueños en El Salvador. 
               Comencemos esta emocionante aventura juntos.
@@ -133,7 +133,7 @@ export default function Contacto() {
               <h2 className="text-5xl font-bold mb-6">
                 Múltiples Formas de <span className="text-blue-400">Contactarnos</span>
               </h2>
-              <p className="text-xl text-gray-400 max-w-3xl mx-auto">
+              <p className="text-xl text-gray-700 max-w-3xl mx-auto">
                 Elige la forma que más te convenga para comenzar tu proyecto de construcción.
               </p>
             </AnimatedText>
@@ -146,13 +146,13 @@ export default function Contacto() {
                   whileInView={{ y: 0, opacity: 1 }}
                   transition={{ delay: index * 0.2, duration: 0.8 }}
                   viewport={{ once: true }}
-                  className="text-center group cursor-pointer p-8 hover:bg-gray-900 transition-all duration-300"
+                  className="text-center group cursor-pointer p-8 hover:bg-gray-50 transition-all duration-300"
                   data-cursor-hover
                 >
                   <item.icon className="text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform" size={48} />
                   <h3 className="text-xl font-bold mb-2">{item.title}</h3>
                   <p className="text-blue-400 font-semibold mb-2">{item.info}</p>
-                  <p className="text-gray-400 text-sm">{item.description}</p>
+                  <p className="text-gray-700 text-sm">{item.description}</p>
                 </motion.div>
               ))}
             </div>
@@ -163,7 +163,7 @@ export default function Contacto() {
         <section className="py-32 px-4 bg-gray-900">
           <div className="max-w-4xl mx-auto">
             <AnimatedText className="text-center mb-20">
-              <h2 className="text-5xl font-bold mb-6">
+              <h2 className="text-5xl font-bold text-white mb-6">
                 Solicita tu <span className="text-blue-400">Consulta Gratuita</span>
               </h2>
               <p className="text-xl text-gray-400">
@@ -278,7 +278,7 @@ export default function Contacto() {
                   <div className="text-center">
                     <button
                       type="submit"
-                      className="bg-blue-600 hover:bg-blue-700 px-12 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center mx-auto group"
+                      className="bg-blue-600 text-white hover:bg-blue-700 px-12 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center mx-auto group"
                       data-cursor-hover
                     >
                       <Send className="mr-3" />
@@ -311,7 +311,7 @@ export default function Contacto() {
               <h2 className="text-5xl font-bold mb-8">
                 ¿Necesitas Respuesta <span className="text-blue-400">Inmediata</span>?
               </h2>
-              <p className="text-xl text-gray-400 mb-12 leading-relaxed">
+              <p className="text-xl text-gray-700 mb-12 leading-relaxed">
                 Conecta con nosotros por WhatsApp para respuestas rápidas y 
                 asesoramiento personalizado sobre tu proyecto de construcción.
               </p>
@@ -320,7 +320,7 @@ export default function Contacto() {
                 href="/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-green-600 hover:bg-green-700 px-12 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center group"
+                className="bg-green-600 text-white hover:bg-green-700 px-12 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center group"
                 data-cursor-hover
               >
                 <MessageSquare className="mr-3" />
@@ -331,8 +331,8 @@ export default function Contacto() {
         </section>
 
         {/* Office Hours */}
-        <section className="py-32 px-4 bg-gray-900">
-          <div className="max-w-7xl mx-auto text-center">
+        <section className="p-5 bg-gray-100 ">
+          <div className="max-w-7xl mx-auto text-center shadow-lg p-4 rounded-lg">
             <AnimatedText>
               <h2 className="text-5xl font-bold mb-12">
                 Horarios de <span className="text-blue-400">Atención</span>
@@ -342,22 +342,22 @@ export default function Contacto() {
                 <div className="p-8">
                   <Clock className="text-blue-400 mx-auto mb-4" size={48} />
                   <h3 className="text-xl font-bold mb-2">Oficina</h3>
-                  <p className="text-gray-400">Lunes - Viernes</p>
-                  <p className="text-gray-400">8:00 AM - 6:00 PM</p>
+                  <p className="text-gray-700">Lunes - Viernes</p>
+                  <p className="text-gray-700">8:00 AM - 6:00 PM</p>
                 </div>
                 
                 <div className="p-8">
                   <MessageSquare className="text-green-500 mx-auto mb-4" size={48} />
                   <h3 className="text-xl font-bold mb-2">WhatsApp</h3>
-                  <p className="text-gray-400">Todos los días</p>
-                  <p className="text-gray-400">24/7</p>
+                  <p className="text-gray-700">Todos los días</p>
+                  <p className="text-gray-700">24/7</p>
                 </div>
                 
                 <div className="p-8">
                   <Mail className="text-purple-500 mx-auto mb-4" size={48} />
                   <h3 className="text-xl font-bold mb-2">Email</h3>
-                  <p className="text-gray-400">Respuesta en</p>
-                  <p className="text-gray-400">{'< 24 horas'}</p>
+                  <p className="text-gray-700">Respuesta en</p>
+                  <p className="text-gray-700">{'< 24 horas'}</p>
                 </div>
               </div>
             </AnimatedText>

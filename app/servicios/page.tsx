@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { MapPin, Home, CreditCard, FileText, Users, Truck, CheckCircle, ArrowRight } from 'lucide-react';
+import { MapPin, Home, CreditCard, FileText, Users,Sun, Truck, CheckCircle, ArrowRight } from 'lucide-react';
 import SmoothScroll from '@/components/SmoothScroll';
 import CustomCursor from '@/components/CustomCursor';
 import Navigation from '@/components/Navigation';
@@ -9,44 +9,57 @@ import ParallaxImage from '@/components/ParallaxImage';
 import AnimatedText from '@/components/AnimatedText';
 
 export default function Servicios() {
-  const mainServices = [
-    {
-      title: "Compra de Terrenos",
-      description: "Selección y adquisición de terrenos en las mejores ubicaciones de El Salvador",
-      icon: MapPin,
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
-      features: [
-        "Asesoría legal completa",
-        "Verificación de documentos",
-        "Negociación de precios",
-        "Trámites notariales"
-      ]
-    },
-    {
-      title: "Construcción Personalizada",
-      description: "Diseño y construcción de casas únicas adaptadas a tu estilo de vida",
-      icon: Home,
-      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
-      features: [
-        "Diseño arquitectónico personalizado",
-        "Materiales de primera calidad",
-        "Supervisión constante",
-        "Garantía de construcción"
-      ]
-    },
-    {
-      title: "Servicios Financieros",
-      description: "Facilitamos el financiamiento y transferencias desde el exterior",
-      icon: CreditCard,
-      image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
-      features: [
-        "Conexión con Banco Promerica",
-        "Gestión FSV",
-        "MoneyGram y transferencias",
-        "Planes de financiamiento"
-      ]
-    }
-  ];
+const mainServices = [
+  {
+    title: "Compra de Terrenos",
+    description: "Selección y adquisición de terrenos en las mejores ubicaciones de El Salvador",
+    icon: MapPin, // Assuming MapPin is an imported icon component
+    image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+    features: [
+      "Asesoría legal completa",
+      "Verificación de documentos",
+      "Negociación de precios",
+      "Trámites notariales"
+    ]
+  },
+  {
+    title: "Construcción Personalizada",
+    description: "Diseño y construcción de casas únicas adaptadas a tu estilo de vida",
+    icon: Home, // Assuming Home is an imported icon component
+    image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
+    features: [
+      "Diseño arquitectónico personalizado",
+      "Materiales de primera calidad",
+      "Supervisión constante",
+      "Garantía de construcción"
+    ]
+  },
+  {
+    title: "Servicios Financieros",
+    description: "Facilitamos el financiamiento y transferencias desde el exterior",
+    icon: CreditCard, // Assuming CreditCard is an imported icon component
+    image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
+    features: [
+      "Conexión con Banco Promerica",
+      "Gestión FSV",
+      "MoneyGram y transferencias",
+      "Planes de financiamiento"
+    ]
+  },
+  {
+    title: "Instalación de Paneles Solares",
+    description: "Implementación de sistemas de energía solar para hogares y negocios.",
+    icon: Sun, // You would need to import a Sun icon, e.g., from react-icons
+    image: "https://images.pexels.com/photos/8853502/pexels-photo-8853502.jpeg", // A relevant image for solar panels
+    features: [
+      "Asesoría y diseño personalizado",
+      "Instalación profesional certificada",
+      "Gestión de permisos y trámites",
+      "Mantenimiento y monitoreo",
+      "Ahorro energético garantizado"
+    ]
+  }
+];
 
   const processSteps = [
     {
@@ -111,7 +124,7 @@ export default function Servicios() {
   return (
     <SmoothScroll>
       <CustomCursor />
-      <Navigation />
+     
       
       <main className="bg-black text-white">
         {/* Hero Section */}
@@ -122,7 +135,7 @@ export default function Servicios() {
               alt="Servicios de construcción"
               className="w-full h-full"
             />
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
           
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
@@ -139,7 +152,7 @@ export default function Servicios() {
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 1.2, delay: 0.3, ease: "easeInOut" }}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed"
+              className="text-xl md:text-2xl text-gray-200 leading-relaxed"
             >
               Servicios integrales para construir tu hogar ideal en El Salvador, 
               diseñados especialmente para salvadoreños en el exterior.

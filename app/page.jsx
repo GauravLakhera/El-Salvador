@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
+import ScrollVelocity from "../components/ScrollVelocity";
 import { ArrowRight, MapPin, CreditCard, Phone } from "lucide-react";
 import {
   Home,
@@ -26,8 +27,8 @@ import AnimatedHeadline from "@/components/AnimatedHeadline";
 import WhyChooseUs from "@/components/WhyChooseUs";
 
 export default function HomePage() {
-  const heroRef = useRef<HTMLDivElement>(null);
-  const mapRef = useRef<HTMLDivElement>(null);
+  const heroRef = useRef(null);
+  const mapRef = useRef(null);
 
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -169,29 +170,27 @@ export default function HomePage() {
   return (
     <SmoothScroll>
       <CustomCursor />
-      <Navigation />
+      {/* <Navigation /> */}
 
       <main className="bg-blue-50 text-white">
         {/* Hero Section */}
         <section
           ref={heroRef}
-          className="flex flex-col  w-11/12 mx-auto  items-center justify-between relative overflow-hidden"
+          className="flex flex-col   items-center justify-between relative overflow-hidden"
         >
-          <div className="flex flex-col gap-6 mt-[8rem] pb-4">
-            <div className="py-20 flex">
-              <div className="flex flex-col">
+          <div className="flex flex-col gap-6 pb-4">
+            <div className="pt-20 w-11/12 mx-auto flex flex-col md:flex-row md:w-11/12">
+              <div className="flex flex-col w-full md:w-6/12">
                 <motion.h1
-                  className="hero-title text-6xl font-bold mb-6 text-black"
+                  className="hero-title text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-black text-center md:text-left"
                   initial={{ opacity: 0 }}
                 >
-                  Construye Más Que Una Casa
-                  <span>
-                    Casas Personalizadas | Ampliaciones | Vida al Aire Libre
-                  </span>
+                  Tu visión, nuestra construcción:
+                  <span className="block">edificamos el futuro que imaginas</span>
                 </motion.h1>
-                <div className="mt-5 flex flex-col">
+                <div className="mt-5 flex flex-col items-center md:items-start">
                   <motion.p
-                    className="hero-title font-quicksand text-xl text-gray-600"
+                    className="hero-title font-quicksand text-base sm:text-lg md:text-xl text-gray-600 text-center md:text-left px-4 md:px-0"
                     initial={{ opacity: 0 }}
                   >
                     Expertos en construcción de casas personalizadas. Desde la
@@ -200,12 +199,12 @@ export default function HomePage() {
                   </motion.p>
 
                   <motion.div
-                    className="hero-title flex flex-col py-2 sm:flex-row gap-6 justify-start"
+                    className="hero-title flex flex-col py-2 sm:flex-row gap-4 sm:gap-6 justify-center md:justify-start mt-4"
                     initial={{ opacity: 0 }}
                   >
                     <Link
                       href="/contacto"
-                      className="bg-[#203C73] hover:bg-[#182c56] px-8 py-4 rounded-none text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center group"
+                      className="bg-[#203C73] hover:bg-[#182c56] px-6 py-3 sm:px-8 sm:py-4 rounded-none text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center group w-11/12 sm:w-auto mx-auto md:mx-0"
                       data-cursor-hover
                     >
                       Reservar Ahora
@@ -214,7 +213,7 @@ export default function HomePage() {
 
                     <Link
                       href="/proyectos"
-                      className="border-2 border-blue-300 hover:bg-white text-black px-8 py-4 rounded-none text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                      className="border-2 border-blue-300 hover:bg-white text-black px-6 py-3 sm:px-8 sm:py-4 rounded-none text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105 w-11/12 sm:w-auto mx-auto md:mx-0"
                       data-cursor-hover
                     >
                       Ver Proyectos
@@ -222,18 +221,31 @@ export default function HomePage() {
                   </motion.div>
                 </div>
               </div>
+              <div>
+
+           
               <ParallaxImage
                 src="/images/home/home-1-01.webp"
                 alt="Casa moderna en El Salvador"
-                className=" "
+                className="hidden md:block w-full md:w-6/12 mt-8 md:mt-0"
               />
+                 </div>
+            </div>
+            <div className="text-center px-4">
+              <h1 className="text-base sm:text-lg font-bold text-black">
+                Compra tu terreno aquí, y construye aquí, nosotros también
+                podemos ayudarte a construir la casa de tus sueños!
+                <a className="text-blue-900 underline" href="/contact">
+                  ¡Contáctanos para más información!
+                </a>
+              </h1>
             </div>
 
-            <div className=" h-[30rem]">
+            <div className="h-48 sm:h-64 md:h-[30rem] w-full">
               <ParallaxImage
                 src="/images/main.jpg"
                 alt="Casa moderna en El Salvador"
-                className="w-full  "
+                class="w-full h-full object-cover"
               />
             </div>
           </div>

@@ -1,22 +1,22 @@
-'use client';
+"use client";
 
-import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { MapPin, Calendar, DollarSign, Home, Filter } from 'lucide-react';
-import SmoothScroll from '@/components/SmoothScroll';
-import CustomCursor from '@/components/CustomCursor';
-import Navigation from '@/components/Navigation';
-import ParallaxImage from '@/components/ParallaxImage';
-import AnimatedText from '@/components/AnimatedText';
+import { useState } from "react";
+import { motion } from "framer-motion";
+import { MapPin, Calendar, DollarSign, Home, Filter } from "lucide-react";
+import SmoothScroll from "@/components/SmoothScroll";
+import CustomCursor from "@/components/CustomCursor";
+import Navigation from "@/components/Navigation";
+import ParallaxImage from "@/components/ParallaxImage";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function Proyectos() {
-  const [activeFilter, setActiveFilter] = useState('all');
+  const [activeFilter, setActiveFilter] = useState("all");
 
   const filters = [
-    { id: 'all', label: 'Todos los Proyectos' },
-    { id: 'completed', label: 'Completados' },
-    { id: 'in-progress', label: 'En Construcción' },
-    { id: 'planning', label: 'En Planificación' }
+    { id: "all", label: "Todos los Proyectos" },
+    { id: "completed", label: "Completados" },
+    { id: "in-progress", label: "En Construcción" },
+    { id: "planning", label: "En Planificación" },
   ];
 
   const projects = [
@@ -30,13 +30,15 @@ export default function Proyectos() {
       bathrooms: 3,
       price: "$85,000",
       year: "2023",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Casa moderna de dos niveles con diseño contemporáneo, amplios espacios y acabados de lujo."
+      description:
+        "Casa moderna de dos niveles con diseño contemporáneo, amplios espacios y acabados de lujo.",
     },
     {
       id: 2,
@@ -48,13 +50,15 @@ export default function Proyectos() {
       bathrooms: 2,
       price: "$65,000",
       year: "2023",
-      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Casa familiar de una planta con amplios jardines y espacios comunes ideales para la vida familiar."
+      description:
+        "Casa familiar de una planta con amplios jardines y espacios comunes ideales para la vida familiar.",
     },
     {
       id: 3,
@@ -66,13 +70,15 @@ export default function Proyectos() {
       bathrooms: 4,
       price: "$120,000",
       year: "2024",
-      image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Residencia de lujo con vista al mar, piscina privada y acabados premium."
+      description:
+        "Residencia de lujo con vista al mar, piscina privada y acabados premium.",
     },
     {
       id: 4,
@@ -84,13 +90,15 @@ export default function Proyectos() {
       bathrooms: 2,
       price: "$55,000",
       year: "2024",
-      image: "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Casa diseñada con tecnologías eco-sostenibles y materiales locales renovables."
+      description:
+        "Casa diseñada con tecnologías eco-sostenibles y materiales locales renovables.",
     },
     {
       id: 5,
@@ -102,13 +110,15 @@ export default function Proyectos() {
       bathrooms: 2,
       price: "$48,000",
       year: "2024",
-      image: "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Desarrollo habitacional con múltiples unidades y áreas comunes para la comunidad."
+      description:
+        "Desarrollo habitacional con múltiples unidades y áreas comunes para la comunidad.",
     },
     {
       id: 6,
@@ -120,44 +130,54 @@ export default function Proyectos() {
       bathrooms: 3,
       price: "$72,000",
       year: "2023",
-      image: "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
+      image:
+        "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
       gallery: [
         "https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=800",
         "https://images.pexels.com/photos/1396122/pexels-photo-1396122.jpeg?auto=compress&cs=tinysrgb&w=800",
-        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800"
+        "https://images.pexels.com/photos/323780/pexels-photo-323780.jpeg?auto=compress&cs=tinysrgb&w=800",
       ],
-      description: "Casa de estilo colonial con patios internos y arquitectura tradicional salvadoreña."
-    }
+      description:
+        "Casa de estilo colonial con patios internos y arquitectura tradicional salvadoreña.",
+    },
   ];
 
-  const filteredProjects = activeFilter === 'all' 
-    ? projects 
-    : projects.filter(project => project.status === activeFilter);
+  const filteredProjects =
+    activeFilter === "all"
+      ? projects
+      : projects.filter((project) => project.status === activeFilter);
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'completed': return 'bg-green-600';
-      case 'in-progress': return 'bg-blue-600';
-      case 'planning': return 'bg-yellow-600';
-      default: return 'bg-gray-600';
+      case "completed":
+        return "bg-green-600";
+      case "in-progress":
+        return "bg-blue-600";
+      case "planning":
+        return "bg-yellow-600";
+      default:
+        return "bg-gray-600";
     }
   };
 
   const getStatusLabel = (status: string) => {
     switch (status) {
-      case 'completed': return 'Completado';
-      case 'in-progress': return 'En Construcción';
-      case 'planning': return 'En Planificación';
-      default: return 'Estado Desconocido';
+      case "completed":
+        return "Completado";
+      case "in-progress":
+        return "En Construcción";
+      case "planning":
+        return "En Planificación";
+      default:
+        return "Estado Desconocido";
     }
   };
 
   return (
     <SmoothScroll>
       <CustomCursor />
-      <Navigation />
-      
-      <main className="bg-black text-white">
+
+      <main className="bg-blue-50 text-black">
         {/* Hero Section */}
         <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
           <div className="absolute inset-0 z-0">
@@ -166,27 +186,27 @@ export default function Proyectos() {
               alt="Proyectos de construcción"
               className="w-full h-full"
             />
-            <div className="absolute inset-0 bg-black/70"></div>
+            <div className="absolute inset-0 bg-black/30"></div>
           </div>
-          
+
           <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-            <motion.h1 
+            <motion.h1
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2}}
-              className="text-6xl md:text-8xl font-bold mb-6"
+              transition={{ duration: 1.2 }}
+              className="text-6xl md:text-8xl text-white font-bold mb-6"
             >
               Nuestros <span className="text-blue-400">Proyectos</span>
             </motion.h1>
-            
-            <motion.p 
+
+            <motion.p
               initial={{ y: 100, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 1.2, delay: 0.3}}
-              className="text-xl md:text-2xl text-gray-300 leading-relaxed"
+              transition={{ duration: 1.2, delay: 0.3 }}
+              className="text-xl md:text-2xl text-gray-200 leading-relaxed"
             >
-              Descubre las casas que hemos construido con amor y dedicación 
-              para familias salvadoreñas en todo el país.
+              Descubre las casas que hemos construido con amor y dedicación para
+              familias salvadoreñas en todo el país.
             </motion.p>
           </div>
         </section>
@@ -201,8 +221,8 @@ export default function Proyectos() {
                   onClick={() => setActiveFilter(filter.id)}
                   className={`px-6 py-3 rounded-none font-semibold transition-all duration-300 flex items-center ${
                     activeFilter === filter.id
-                      ? 'bg-blue-600 text-white'
-                      : 'bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white'
+                      ? "bg-blue-600 text-white"
+                      : "bg-gray-800 text-gray-400 hover:bg-gray-700 hover:text-white"
                   }`}
                   data-cursor-hover
                 >
@@ -217,7 +237,7 @@ export default function Proyectos() {
         {/* Projects Grid */}
         <section className="py-32 px-4">
           <div className="max-w-7xl mx-auto">
-            <motion.div 
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
               layout
             >
@@ -236,48 +256,53 @@ export default function Proyectos() {
                     <ParallaxImage
                       src={project.image}
                       alt={project.title}
+                      intensity={100}
                       className="w-full h-full group-hover:scale-110 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-300"></div>
-                    
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/20 transition-colors duration-300"></div>
+
                     {/* Status Badge */}
-                    <div className={`absolute top-4 left-4 ${getStatusColor(project.status)} px-3 py-1 text-sm font-semibold`}>
+                    <div
+                      className={`absolute top-4 left-4 ${getStatusColor(
+                        project.status
+                      )} px-3 py-1 text-sm font-semibold`}
+                    >
                       {getStatusLabel(project.status)}
                     </div>
-                    
+
                     {/* Year Badge */}
-                    <div className="absolute top-4 right-4 bg-black/70 px-3 py-1 text-sm font-semibold">
+                    <div className="absolute top-4 text-white right-4 bg-black/70 px-3 py-1 text-sm font-semibold">
                       {project.year}
                     </div>
                   </div>
-                  
+
                   <div className="space-y-4">
                     <h3 className="text-2xl font-bold group-hover:text-blue-400 transition-colors">
                       {project.title}
                     </h3>
-                    
-                    <p className="text-gray-400 flex items-center">
+
+                    <p className="text-gray-700 flex items-center">
                       <MapPin size={16} className="mr-2" />
                       {project.location}
                     </p>
-                    
+
                     <div className="grid grid-cols-2 gap-4 text-sm">
-                      <div className="flex items-center text-gray-400">
+                      <div className="flex items-center text-gray-700">
                         <Home size={16} className="mr-2" />
                         {project.area}
                       </div>
-                      <div className="flex items-center text-gray-400">
+                      <div className="flex items-center text-gray-700">
                         <DollarSign size={16} className="mr-2" />
                         {project.price}
                       </div>
                     </div>
-                    
-                    <div className="flex justify-between text-sm text-gray-400">
+
+                    <div className="flex justify-between text-sm text-gray-700">
                       <span>{project.bedrooms} habitaciones</span>
                       <span>{project.bathrooms} baños</span>
                     </div>
-                    
-                    <p className="text-gray-400 leading-relaxed">
+
+                    <p className="text-gray-700 leading-relaxed">
                       {project.description}
                     </p>
                   </div>
@@ -291,12 +316,12 @@ export default function Proyectos() {
         <section className="py-32 px-4 bg-gray-900">
           <div className="max-w-7xl mx-auto">
             <AnimatedText className="text-center mb-20">
-              <h2 className="text-5xl font-bold mb-6">
+              <h2 className="text-5xl font-bold text-white mb-6">
                 Ubicaciones de <span className="text-blue-400">Proyectos</span>
               </h2>
               <p className="text-xl text-gray-400 max-w-3xl mx-auto">
-                Nuestros proyectos están distribuidos estratégicamente en todo El Salvador, 
-                en las mejores ubicaciones del país.
+                Nuestros proyectos están distribuidos estratégicamente en todo
+                El Salvador, en las mejores ubicaciones del país.
               </p>
             </AnimatedText>
 
@@ -304,8 +329,12 @@ export default function Proyectos() {
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="text-center">
                   <MapPin className="text-blue-400 mx-auto mb-4" size={64} />
-                  <h3 className="text-2xl font-bold mb-2">Mapa Interactivo de Proyectos</h3>
-                  <p className="text-gray-400">Próximamente: Mapa interactivo con todos nuestros proyectos</p>
+                  <h3 className="text-2xl font-bold mb-2">
+                    Mapa Interactivo de Proyectos
+                  </h3>
+                  <p className="text-gray-400">
+                    Próximamente: Mapa interactivo con todos nuestros proyectos
+                  </p>
                 </div>
               </div>
             </div>
@@ -317,10 +346,13 @@ export default function Proyectos() {
           <div className="max-w-7xl mx-auto">
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
               {[
-                { number: "200+", label: "Proyectos Completados" },
-                { number: "50+", label: "En Construcción" },
-                { number: "30+", label: "En Planificación" },
-                { number: "14", label: "Departamentos Cubiertos" }
+                { number: "15+", label: "Años de Experiencia" },
+                { number: "200+", label: "proyecto completado" },
+                {
+                  number: "14",
+                  label: "Departamentos Cubiertos",
+                },
+                { number: "500+", label: "Familias Felices" },
               ].map((stat, index) => (
                 <motion.div
                   key={stat.label}
@@ -330,12 +362,10 @@ export default function Proyectos() {
                   viewport={{ once: true }}
                   className="group"
                 >
-                  <div className="text-4xl md:text-5xl font-bold text-blue-400 mb-2 group-hover:scale-110 transition-transform">
+                  <div className="text-4xl md:text-5xl font-bold text-blue-900 mb-2 group-hover:scale-110 transition-transform">
                     {stat.number}
                   </div>
-                  <div className="text-gray-400 text-lg">
-                    {stat.label}
-                  </div>
+                  <div className="text-gray-700 text-lg">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
