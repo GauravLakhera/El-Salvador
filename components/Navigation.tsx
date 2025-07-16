@@ -29,25 +29,32 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+
   // const navItems = [
-  //   { href: '/', label: 'Inicio', icon: Home },
-  //  { href: '/', label: 'Panel solar', icon: MdSolarPower },
-  //   { href: '/sobre-nosotros', label: 'Sobre Nosotros', icon: Users },
-  //   { href: '/servicios', label: 'Servicios', icon: Briefcase },
-  //   { href: '/proyectos', label: 'Proyectos', icon: MapPin },
-  //
-  //   { href: '/contacto', label: 'Contacto', icon: Phone },
+  //   { href: "/", label: "Inicio", icon: Home },
+  //   { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
+  //   { href: "/solarPanel", label: "Panel solar", icon: MdSolarPower },
+  //   { href: "/servicios", label: "Servicios", icon: Briefcase },
+  //   { href: "/proyectos", label: "Proyectos", icon: MapPin },
+  //      { href: "/tigo-top-up", label: "Tigo", icon: PhoneCall },
+
+  //   { href: "/contacto", label: "Contacto", icon: Phone },
   // ];
-  const navItems = [
+
+
+
+    const navItems = [
     { href: "/", label: "Inicio", icon: Home },
     { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
     { href: "/solarPanel", label: "Panel solar", icon: MdSolarPower },
-    { href: "/servicios", label: "Servicios", icon: Briefcase },
-    { href: "/proyectos", label: "Proyectos", icon: MapPin },
+    { href: "/", label: "Servicios", icon: Briefcase },
+    { href: "/", label: "Proyectos", icon: MapPin },
        { href: "/tigo-top-up", label: "Tigo", icon: PhoneCall },
 
     { href: "/contacto", label: "Contacto", icon: Phone },
   ];
+
+
   return (
     <motion.nav
       initial={{ y: -100 }}
