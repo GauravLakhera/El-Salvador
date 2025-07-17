@@ -13,6 +13,9 @@ import {
   BookOpen,
   Phone,
   PhoneCall,
+  Image,
+  LandPlotIcon,
+  User,
 } from "lucide-react";
 import { MdSolarPower } from "react-icons/md";
 
@@ -29,7 +32,6 @@ export default function Navigation() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   // const navItems = [
   //   { href: "/", label: "Inicio", icon: Home },
   //   { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
@@ -41,19 +43,20 @@ export default function Navigation() {
   //   { href: "/contacto", label: "Contacto", icon: Phone },
   // ];
 
-
-
-    const navItems = [
+  const navItems = [
     { href: "/", label: "Inicio", icon: Home },
     { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
     { href: "/solarPanel", label: "Panel solar", icon: MdSolarPower },
-    { href: "/", label: "Servicios", icon: Briefcase },
-    { href: "/", label: "Proyectos", icon: MapPin },
-       { href: "/tigo-top-up", label: "Tigo", icon: PhoneCall },
+    { href: "/servicios", label: "Servicios", icon: Briefcase },
+    { href: "/proyectos", label: "Proyectos", icon: MapPin },
+    { href: "/land", label: "tierra", icon: LandPlotIcon },
+
+    { href: "/gallery", label: "galería", icon: Image },
+    { href: "/tigo-top-up", label: "Tigo", icon: PhoneCall },
+    { href: "/loan", label: "préstamo", icon: User },
 
     { href: "/contacto", label: "Contacto", icon: Phone },
   ];
-
 
   return (
     <motion.nav
@@ -72,7 +75,11 @@ export default function Navigation() {
             }`}
             data-cursor-hover
           >
-            <img src="/images/logo.png" className="w-20 drop-shadow-xl" alt="logo" />
+            <img
+              src="/images/logo.png"
+              className="w-20 drop-shadow-xl"
+              alt="logo"
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -6,6 +6,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Link from "next/link";
 import ScrollVelocity from "../components/ScrollVelocity";
+import LandForSale from "../components/LandForSale"
 import { ArrowRight, MapPin, CreditCard, Phone } from "lucide-react";
 import {
   Home,
@@ -67,7 +68,8 @@ export default function HomePage() {
       title: "Compra de Terrenos",
       description: "Encuentra terrenos urbanizados listos para construir.",
       icon: MapPin,
-      image: "images/services/1.png",
+      image:
+        "https://images.unsplash.com/photo-1591389703635-e15a07b842d7?q=80&w=1333&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     },
     {
       title: "Construcción Residencial",
@@ -179,14 +181,16 @@ export default function HomePage() {
           className="flex flex-col   items-center justify-between relative overflow-hidden"
         >
           <div className="flex flex-col gap-6 pb-4">
-            <div className="pt-20 w-11/12 mx-auto flex flex-col md:flex-row md:w-11/12">
-              <div className="flex flex-col w-full md:w-6/12">
+            <div className="pt-5 md:pt-20 w-11/12 mx-auto flex justify-between  flex-col md:flex-row md:w-11/12">
+              <div className="flex flex-col w-full md:w-6/12 ">
                 <motion.h1
                   className="hero-title text-4xl sm:text-5xl md:text-6xl font-bold mb-4 md:mb-6 text-black text-center md:text-left"
                   initial={{ opacity: 0 }}
                 >
                   Tu visión, nuestra construcción:
-                  <span className="block">edificamos el futuro que imaginas</span>
+                  <span className="block">
+                    edificamos el futuro que imaginas
+                  </span>
                 </motion.h1>
                 <div className="mt-5 flex flex-col items-center md:items-start">
                   <motion.p
@@ -221,22 +225,21 @@ export default function HomePage() {
                   </motion.div>
                 </div>
               </div>
-              <div>
-
-           
-              <ParallaxImage
-                src="/images/home/home-1-01.webp"
-                alt="Casa moderna en El Salvador"
-                className="hidden md:block w-full md:w-6/12 mt-8 md:mt-0"
-              />
-                 </div>
+              <div className="">
+                <ParallaxImage
+                  src="/images/home/home-1-01.webp"
+                  alt="Casa moderna en El Salvador"
+                  className="hidden md:block w-full  mt-8 md:mt-0"
+                />
+              </div>
             </div>
             <div className="text-center px-4">
-              <h1 className="text-base sm:text-lg font-bold text-black">
-                Compra tu terreno aquí, y construye aquí, nosotros también
-                podemos ayudarte a construir la casa de tus sueños!
+              <h1 className="text-base sm:text-lg font-medium text-black">
+                Compra tu terreno aquí, y construye aquí. Construcciones al
+                estilo Americano o Salvadoreño, nosotros podemos ayudarte a
+                construir la casa de tus sueños!
                 <a className="text-blue-900 underline" href="/contact">
-                  ¡Contáctanos para más información!
+                  ¡Contáctanos ahora mismo para más información!
                 </a>
               </h1>
             </div>
@@ -351,7 +354,7 @@ export default function HomePage() {
         </section> */}
 
         {/* External Links Section */}
-        <section className="py-32 px-4">
+        {/* <section className="py-32 px-4">
           <div className="max-w-7xl mx-auto">
             <AnimatedText className="text-center mb-20">
               <h2 className="text-5xl md:text-6xl text-black font-bold mb-6">
@@ -388,7 +391,10 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */}
+
+        {/* Land For Sale */}
+        <LandForSale/>
 
         {/* Featured Projects */}
         <section className="py-32 px-4 bg-gray-900">
