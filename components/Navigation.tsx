@@ -18,6 +18,8 @@ import {
   User,
 } from "lucide-react";
 import { MdSolarPower } from "react-icons/md";
+import { TbAffiliate } from "react-icons/tb";
+
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false);
@@ -52,7 +54,7 @@ export default function Navigation() {
     { href: "/land", label: "tierra", icon: LandPlotIcon },
 
     { href: "/gallery", label: "galería", icon: Image },
-    { href: "/tigo-top-up", label: "Tigo", icon: PhoneCall },
+    { href: "/filial", label: "Filial", icon: TbAffiliate  },
     { href: "/loan", label: "préstamo", icon: User },
 
     { href: "/contacto", label: "Contacto", icon: Phone },

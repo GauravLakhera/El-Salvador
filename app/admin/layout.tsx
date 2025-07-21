@@ -1,12 +1,12 @@
-import '../globals.css';
-import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import "../globals.css";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: 'Admin Panel - El Salvador Constructores',
-  description: 'Panel de administración para gestionar contenido del sitio web',
+  title: "Admin Panel - El Salvador Constructores",
+  description: "Panel de administración para gestionar contenido del sitio web",
 };
 
 export default function AdminLayout({
@@ -37,43 +37,43 @@ export default function AdminLayout({
               </div>
             </div>
           </header>
-          
+
           <div className="flex">
             <nav className="w-64 bg-white shadow-sm min-h-screen">
               <div className="p-4">
                 <ul className="space-y-2">
-                  <li>
-                    <a href="/admin" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
-                      Dashboard
-                    </a>
-                  </li>
+                  {/* 
                   <li>
                     <a href="/admin/proyectos" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
                       Proyectos
                     </a>
-                  </li>
+                  </li> */}
                   <li>
-                    <a href="/admin/terrenos" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                    <a
+                      href="/admin/terrenos"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                    >
                       Terrenos
                     </a>
                   </li>
-                  <li>
+                  {/* <li>
                     <a href="/admin/blog" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
                       Blog
                     </a>
-                  </li>
+                  </li> */}
                   <li>
-                    <a href="/admin/galeria" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded">
+                    <a
+                      href="/admin/galeria"
+                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
+                    >
                       Galería
                     </a>
                   </li>
                 </ul>
               </div>
             </nav>
-            
-            <main className="flex-1 p-8">
-              {children}
-            </main>
+
+            <main className="flex-1 p-8">{children}</main>
           </div>
         </div>
       </body>
