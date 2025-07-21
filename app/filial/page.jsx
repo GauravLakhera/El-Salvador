@@ -110,7 +110,7 @@ const AffiliatePage = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
           >
-            Nuestras Alianzas Estratégicas
+            afiliados
           </motion.h1>
           <motion.p
             className="text-lg md:text-xl text-[#A0B0CC] mb-8"
@@ -141,7 +141,7 @@ const AffiliatePage = () => {
         variants={sectionVariants}
       >
         <h2 className="text-3xl md:text-4xl font-bold text-center text-[#203C73] mb-10">
-          Nuestros Aliados
+          Nuestros Afiliados
         </h2>
         <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
           Trabajamos de la mano con líderes en sus respectivos sectores para

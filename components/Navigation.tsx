@@ -54,7 +54,7 @@ export default function Navigation() {
     { href: "/land", label: "tierra", icon: LandPlotIcon },
 
     { href: "/gallery", label: "galería", icon: Image },
-    { href: "/filial", label: "Filial", icon: TbAffiliate  },
+    { href: "/filial", label: "afiliados", icon: TbAffiliate  },
     { href: "/loan", label: "préstamo", icon: User },
 
     { href: "/contacto", label: "Contacto", icon: Phone },
