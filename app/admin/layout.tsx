@@ -2,6 +2,7 @@
 
 import "../globals.css";
 import { Inter } from "next/font/google";
+import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState, useCallback } from "react";
 
@@ -136,7 +137,7 @@ export default function AdminLayout({
                 <ul className="space-y-2 mt-16 md:mt-0">
                   {navigationItems.map((item) => (
                     <li key={item.href}>
-                      <a
+                      <Link
                         href={item.href}
                         onClick={closeMobileMenu}
                         className={`block px-4 py-2 rounded transition-colors duration-200 ${
@@ -146,7 +147,7 @@ export default function AdminLayout({
                         }`}
                       >
                         {item.label}
-                      </a>
+                      </Link>
                     </li>
                   ))}
                 </ul>
