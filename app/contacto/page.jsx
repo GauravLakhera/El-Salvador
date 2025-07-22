@@ -152,7 +152,7 @@ export default function Contacto() {
     //   <CustomCursor />
     //   <Navigation />
 
-    <main className="bg-blue-50 text-black">
+    <main className="bg-blue-50 text-black" translate="no">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
