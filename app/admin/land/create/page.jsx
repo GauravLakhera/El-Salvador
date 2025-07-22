@@ -93,10 +93,10 @@ const CreateLandPage = () => {
       if (data.success) {
         router.push("/admin/land");
       } else {
-        setError(data.message || "Failed to create land");
+        setError(data.message || "Error al crear el terreno");
       }
     } catch (err) {
-      setError("Error creating land");
+      setError("Error al crear el terreno");
     } finally {
       setLoading(false);
     }
@@ -109,14 +109,18 @@ const CreateLandPage = () => {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">Add New Land</h1>
-              <p className="text-gray-600 mt-1">Create a new land listing</p>
+              <h1 className="text-3xl font-bold text-gray-900">
+                Agregar Nuevo Terreno
+              </h1>
+              <p className="text-gray-600 mt-1">
+                Crear un nuevo listado de terreno
+              </p>
             </div>
             <Link
               href="/admin/land"
               className="text-gray-600 hover:text-gray-900 font-medium"
             >
-              ← Back to Lands
+              ← Volver a Terrenos
             </Link>
           </div>
         </div>
@@ -137,12 +141,12 @@ const CreateLandPage = () => {
             {/* Basic Information */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Basic Information
+                Información Básica
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Name *
+                    Nombre *
                   </label>
                   <input
                     type="text"
@@ -155,7 +159,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Price ($) *
+                    Precio ($) *
                   </label>
                   <input
                     type="number"
@@ -171,7 +175,7 @@ const CreateLandPage = () => {
 
               <div className="mt-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Title *
+                  Título *
                 </label>
                 <input
                   type="text"
@@ -187,7 +191,7 @@ const CreateLandPage = () => {
 
               <div className="mt-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Description *
+                  Descripción *
                 </label>
                 <textarea
                   name="description"
@@ -205,12 +209,12 @@ const CreateLandPage = () => {
             {/* Location */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Location
+                Ubicación
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    City *
+                    Ciudad *
                   </label>
                   <input
                     type="text"
@@ -223,7 +227,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    State *
+                    Departamento *
                   </label>
                   <input
                     type="text"
@@ -236,7 +240,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Zip Code *
+                    Código Postal *
                   </label>
                   <input
                     type="text"
@@ -249,7 +253,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Country
+                    País
                   </label>
                   <input
                     type="text"
@@ -263,7 +267,7 @@ const CreateLandPage = () => {
 
               <div className="mt-4">
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Address *
+                  Dirección *
                 </label>
                 <input
                   type="text"
@@ -278,7 +282,7 @@ const CreateLandPage = () => {
               {/* <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Longitude *
+                    Longitud *
                   </label>
                   <input
                     type="number"
@@ -292,7 +296,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Latitude *
+                    Latitud *
                   </label>
                   <input
                     type="number"
@@ -310,12 +314,12 @@ const CreateLandPage = () => {
             {/* Land Details */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Land Details
+                Detalles del Terreno
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Area (sq ft) *
+                    Área (pies cuadrados) *
                   </label>
                   <input
                     type="number"
@@ -329,7 +333,7 @@ const CreateLandPage = () => {
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Land Type *
+                    Tipo de Terreno *
                   </label>
                   <select
                     name="landType"
@@ -338,16 +342,16 @@ const CreateLandPage = () => {
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
-                    <option value="residential">Residential</option>
-                    <option value="commercial">Commercial</option>
-                    <option value="agricultural">Agricultural</option>
+                    <option value="residential">Residencial</option>
+                    <option value="commercial">Comercial</option>
+                    <option value="agricultural">Agrícola</option>
                     <option value="industrial">Industrial</option>
-                    <option value="recreational">Recreational</option>
+                    <option value="recreational">Recreacional</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Zoning *
+                    Zonificación *
                   </label>
                   <select
                     name="zoning"
@@ -364,7 +368,7 @@ const CreateLandPage = () => {
                     <option value="M1">M1</option>
                     <option value="M2">M2</option>
                     <option value="A1">A1</option>
-                    <option value="mixed-use">Mixed Use</option>
+                    <option value="mixed-use">Uso Mixto</option>
                   </select>
                 </div>
               </div>
@@ -373,12 +377,12 @@ const CreateLandPage = () => {
             {/* Status and Settings */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Status & Settings
+                Estado y Configuración
               </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Status
+                    Estado
                   </label>
                   <select
                     name="status"
@@ -386,15 +390,15 @@ const CreateLandPage = () => {
                     onChange={handleInputChange}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                   >
-                    <option value="available">Available</option>
-                    <option value="pending">Pending</option>
-                    <option value="sold">Sold</option>
-                    <option value="withdrawn">Withdrawn</option>
+                    <option value="available">Disponible</option>
+                    <option value="pending">Pendiente</option>
+                    <option value="sold">Vendido</option>
+                    <option value="withdrawn">Retirado</option>
                   </select>
                 </div>
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-2">
-                    Virtual Tour URL
+                    URL de Tour Virtual
                   </label>
                   <input
                     type="url"
@@ -416,7 +420,7 @@ const CreateLandPage = () => {
                     className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                   />
                   <span className="ml-2 text-sm font-medium text-gray-700">
-                    Featured
+                    Destacado
                   </span>
                 </label>
                 <label className="flex items-center">
@@ -428,7 +432,7 @@ const CreateLandPage = () => {
                     className="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-300 focus:ring focus:ring-blue-200 focus:ring-opacity-50"
                   />
                   <span className="ml-2 text-sm font-medium text-gray-700">
-                    Active
+                    Activo
                   </span>
                 </label>
               </div>
@@ -437,11 +441,11 @@ const CreateLandPage = () => {
             {/* Images */}
             <div>
               <h3 className="text-lg font-semibold text-gray-900 mb-4">
-                Images
+                Imágenes
               </h3>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Upload Images
+                  Subir Imágenes
                 </label>
                 <input
                   type="file"
@@ -451,8 +455,8 @@ const CreateLandPage = () => {
                   className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                 />
                 <p className="text-sm text-gray-500 mt-1">
-                  Select multiple images. The first image will be set as
-                  primary.
+                  Seleccione varias imágenes. La primera imagen se establecerá
+                  como principal.
                 </p>
               </div>
             </div>
@@ -464,7 +468,7 @@ const CreateLandPage = () => {
               href="/admin/land"
               className="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50 font-medium transition-colors"
             >
-              Cancel
+              Cancelar
             </Link>
             <button
               type="submit"
@@ -475,7 +479,7 @@ const CreateLandPage = () => {
                   : "bg-blue-600 hover:bg-blue-700 text-white"
               }`}
             >
-              {loading ? "Creating..." : "Create Land"}
+              {loading ? "Creando..." : "Crear Terreno"}
             </button>
           </div>
         </form>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaWhatsapp, FaEnvelope } from "react-icons/fa";
 import { FaMapMarkerAlt, FaPhoneAlt } from "react-icons/fa";
 
@@ -32,10 +33,10 @@ const Footer = () => {
         <div>
           <h3 className="text-xl font-semibold mb-4">Enlaces Rápidos</h3>
           <ul className="space-y-2 text-gray-400 text-sm">
-            <li><a href="/about" className="hover:text-white">Acerca de Nosotros</a></li>
-            <li><a href="/services" className="hover:text-white">Servicios</a></li>
-            <li><a href="/projects" className="hover:text-white">Proyectos</a></li>
-            <li><a href="/contact" className="hover:text-white">Contáctanos</a></li>
+            <li><Link href="/sobre-nosotros" className="hover:text-white">Acerca de Nosotros</Link></li>
+            <li><Link href="/servicios" className="hover:text-white">Servicios</Link></li>
+            <li><Link href="/proyectos" className="hover:text-white">Proyectos</Link></li>
+            <li><Link href="/contacto" className="hover:text-white">Contáctanos</Link></li>
           </ul>
         </div>
 

@@ -76,7 +76,7 @@ const WhyChooseUs = () => {
             <motion.a
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              href="#"
+              href="/contacto"
               className="inline-flex items-center px-6 py-3 bg-white text-black font-medium rounded-none border border-white hover:bg-gray-100 transition"
             >
               Reservar Cita

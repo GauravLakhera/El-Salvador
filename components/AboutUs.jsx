@@ -63,7 +63,7 @@ export default function AboutUs() {
           </p>
 
           <motion.a
-            href="#"
+            href="/contacto"
             className="inline-flex items-center px-6 py-3 bg-gray-900 text-white font-medium text-sm rounded-full transition-colors duration-200"
           >
             Ver más sobre nosotros →
@@ -116,7 +116,7 @@ export default function AboutUs() {
             futuro que imaginas.
           </p>
           <Link
-            href="/contact"
+            href="/contacto"
             className="px-6 py-3 mt-3 bg-gray-900 text-white inline-block self-start transition-colors duration-200" // Styled button to match the other
           >
             Contáctanos

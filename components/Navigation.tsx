@@ -51,19 +51,17 @@ export default function Navigation() {
     { href: "/solarPanel", label: "Panel solar", icon: MdSolarPower },
     { href: "/servicios", label: "Servicios", icon: Briefcase },
     { href: "/proyectos", label: "Proyectos", icon: MapPin },
-    { href: "/land", label: "tierra", icon: LandPlotIcon },
+    { href: "/land", label: "Tierra", icon: LandPlotIcon },
 
-    { href: "/gallery", label: "galería", icon: Image },
-    { href: "/filial", label: "afiliados", icon: TbAffiliate  },
-    { href: "/loan", label: "préstamo", icon: User },
+    { href: "/gallery", label: "Galería", icon: Image },
+    { href: "/filial", label: "Afiliados", icon: TbAffiliate  },
+    { href: "/loan", label: "Préstamo", icon: User },
 
     { href: "/contacto", label: "Contacto", icon: Phone },
   ];
 
   return (
-    <motion.nav
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <nav
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled ? "bg-blue-50 backdrop-blur-md" : "bg-transparent"
       }`}
@@ -112,24 +110,13 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        <motion.div
-          initial={false}
-          animate={{
-            height: isOpen ? "auto" : 0,
-            opacity: isOpen ? 1 : 0,
-          }}
+        <div
+
           className="md:hidden overflow-hidden bg-black/95 rounded-lg mb-4"
         >
           <div className="py-4 space-y-4">
             {navItems.map((item, index) => (
-              <motion.div
-                key={item.href}
-                initial={{ x: -50, opacity: 0 }}
-                animate={{
-                  x: isOpen ? 0 : -50,
-                  opacity: isOpen ? 1 : 0,
-                }}
-                transition={{ delay: index * 0.1 }}
+              <div
               >
                 <Link
                   href={item.href}
@@ -140,11 +127,11 @@ export default function Navigation() {
                   <item.icon size={20} />
                   <span>{item.label}</span>
                 </Link>
-              </motion.div>
+              </div>
             ))}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }
