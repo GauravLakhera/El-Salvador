@@ -1,19 +1,11 @@
 "use client";
 
 import "../globals.css";
-// import type { Metadata } from "next"; // Metadata is for layout.tsx at the root or page.tsx, not for client components
 import { Inter } from "next/font/google";
 import { usePathname, useRouter } from "next/navigation";
-import { useEffect, useState, useCallback } from "react"; // Added useState and useCallback
+import { useEffect, useState, useCallback } from "react";
 
 const inter = Inter({ subsets: ["latin"] });
-
-// Metadata should typically be defined in a static `layout.tsx` or `page.tsx` file
-// that isn't a "use client" component, or using generateMetadata.
-// export const metadata: Metadata = {
-//   title: "Admin Panel - El Salvador Constructores",
-//   description: "Administración de contenido para El Salvador Constructores",
-// };
 
 export default function AdminLayout({
   children,
@@ -22,37 +14,47 @@ export default function AdminLayout({
 }) {
   const pathname = usePathname();
   const router = useRouter();
-
-  // State to manage loading during the initial authentication check
   const [isLoading, setIsLoading] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const isLoginPage = pathname === "/admin/login";
 
-  // Function to handle user logout
   const handleLogout = useCallback(() => {
-    localStorage.removeItem("isAdmin"); // Remove the login flag
-    router.push("/admin/login"); // Redirect to login page
-  }, [router]); // router is stable in Next.js 13+, but good to include for clarity
+    localStorage.removeItem("isAdmin");
+    router.push("/admin/login");
+  }, [router]);
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setIsMobileMenuOpen(false);
+  };
 
   useEffect(() => {
     const checkAuth = () => {
       const isLoggedIn = localStorage.getItem("isAdmin") === "true";
 
       if (!isLoginPage && !isLoggedIn) {
-        // If not on the login page and not logged in, redirect to login
         router.push("/admin/login");
       } else if (isLoginPage && isLoggedIn) {
-        // If on the login page but already logged in, redirect to a default admin page
-        // For example, /admin/terrenos or /admin/dashboard
         router.push("/admin/terrenos");
       }
-      setIsLoading(false); // Authentication check is complete
+      setIsLoading(false);
     };
 
     checkAuth();
-  }, [pathname, isLoginPage, router]); // Dependency array includes pathname and router
+  }, [pathname, isLoginPage, router]);
 
-  // Show a loading screen while authentication is being checked
+  const navigationItems = [
+    { href: "/admin/land", label: "Terrenos" },
+    { href: "/admin/gallery", label: "Galería" },
+    { href: "/admin/contact", label: "Contacto" },
+  ];
+
+  const isActiveRoute = (href: string) => pathname === href;
+
   if (isLoading) {
     return (
       <html lang="es">
@@ -65,7 +67,6 @@ export default function AdminLayout({
     );
   }
 
-  // If on the login page, render only its children (the login form)
   if (isLoginPage) {
     return (
       <html lang="es">
@@ -74,27 +75,49 @@ export default function AdminLayout({
     );
   }
 
-  // If not on the login page and authenticated, render the full admin layout
   return (
     <html lang="es">
       <body className={inter.className}>
         <div className="min-h-screen bg-gray-100">
           <header className="bg-white shadow-sm border-b">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-              <div className="flex justify-between h-16">
+              <div className="flex justify-between items-center h-16">
                 <div className="flex items-center">
-                  <h1 className="text-xl font-semibold text-gray-900">
+                  <button
+                    onClick={toggleMobileMenu}
+                    className="md:hidden p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                  >
+                    <svg
+                      className="h-6 w-6"
+                      stroke="currentColor"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      {isMobileMenuOpen ? (
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      ) : (
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M4 6h16M4 12h16M4 18h16"
+                        />
+                      )}
+                    </svg>
+                  </button>
+                  <h1 className="ml-2 md:ml-0 md:text-xl font-semibold text-gray-900">
                     Admin Panel - El Salvador Constructores
                   </h1>
                 </div>
-                <div className="flex items-center space-x-4">
-                  {/* Removed 'Perfil' if it doesn't have a direct route/functionality yet */}
-                  {/* <button className="text-gray-500 hover:text-gray-700">
-                    Perfil
-                  </button> */}
+                <div className="flex items-center">
                   <button
-                    onClick={handleLogout} // Call the logout function on click
-                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500"
+                    onClick={handleLogout}
+                    className="text-gray-500 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 px-3 py-2 rounded-md text-xs md:text-sm font-medium"
                   >
                     Cerrar Sesión
                   </button>
@@ -103,39 +126,41 @@ export default function AdminLayout({
             </div>
           </header>
 
-          <div className="flex">
-            <nav className="w-64 bg-white shadow-sm min-h-screen">
+          <div className="flex relative">
+            <nav
+              className={`${
+                isMobileMenuOpen ? "translate-x-0" : "-translate-x-full"
+              } fixed inset-y-0 left-0 z-50 w-64 bg-white shadow-lg transform transition-transform duration-300 ease-in-out md:translate-x-0 md:static md:inset-0 md:shadow-sm`}
+            >
               <div className="p-4">
-                <ul className="space-y-2">
-                  <li>
-                    <a
-                      href="/admin/land"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                    >
-                      Terrenos
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/admin/gallery"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                    >
-                      Galería
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href="/admin/contact"
-                      className="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded"
-                    >
-                      Contacto
-                    </a>
-                  </li>
+                <ul className="space-y-2 mt-16 md:mt-0">
+                  {navigationItems.map((item) => (
+                    <li key={item.href}>
+                      <a
+                        href={item.href}
+                        onClick={closeMobileMenu}
+                        className={`block px-4 py-2 rounded transition-colors duration-200 ${
+                          isActiveRoute(item.href)
+                            ? "bg-blue-100 text-blue-700 border-l-4 border-blue-700"
+                            : "text-gray-700 hover:bg-gray-100"
+                        }`}
+                      >
+                        {item.label}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             </nav>
 
-            <main className="flex-1 p-8">{children}</main>
+            {isMobileMenuOpen && (
+              <div
+                className="fixed inset-0 z-40 bg-black bg-opacity-50 md:hidden"
+                onClick={closeMobileMenu}
+              ></div>
+            )}
+
+            <main className="flex-1 p-4 md:p-8">{children}</main>
           </div>
         </div>
       </body>

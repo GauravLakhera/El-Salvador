@@ -130,10 +130,10 @@ export default function AdminDashboard() {
       if (data.success) {
         setLands(data.data);
       } else {
-        setError("Failed to fetch lands");
+        setError("Error al cargar los terrenos");
       }
     } catch (err) {
-      setError("Error fetching lands");
+      setError("Error al obtener los terrenos");
     } finally {
       setLoading(false);
     }
@@ -150,7 +150,7 @@ export default function AdminDashboard() {
   };
 
   const handleDelete = async (id) => {
-    if (!confirm("Are you sure you want to delete this land?")) return;
+    if (!confirm("¿Estás seguro de que quieres eliminar este terreno?")) return;
 
     try {
       const response = await fetch(
@@ -163,10 +163,10 @@ export default function AdminDashboard() {
       if (response.ok) {
         setLands(lands.filter((land) => land._id !== id));
       } else {
-        setError("Failed to delete land");
+        setError("Error al eliminar el terreno");
       }
     } catch (err) {
-      setError("Error deleting land");
+      setError("Error al eliminar el terreno");
     }
   };
 
@@ -194,18 +194,16 @@ export default function AdminDashboard() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
-                Gestión de Terrenos
+              <h1 className=" text-sm md:text-3xl font-bold text-gray-900">
+                Gestión de Tierras
               </h1>
-              <p className="text-gray-600 mt-1">
-                Administra tus listados de terrenos
-              </p>
+              <p className="text-gray-600 mt-1 text-xs md:text-sm">Gestiona tus listados de tierras</p>
             </div>
             <Link
               href="/admin/land/create"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-medium transition-colors shadow-sm"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-3 md:px-6 py-3 text-xs md:text-sm rounded-lg font-medium transition-colors shadow-sm"
             >
-              Agregar Nuevo Terreno
+              Añadir Nueva Tierra
             </Link>
           </div>
         </div>
@@ -220,7 +218,7 @@ export default function AdminDashboard() {
 
         {/* Filters */}
         <div className="bg-white rounded-lg shadow-sm border mb-6 p-6">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-2">
                 Buscar
@@ -249,23 +247,7 @@ export default function AdminDashboard() {
                 <option value="withdrawn">Retirado</option>
               </select>
             </div>
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-2">
-                Tipo de Terreno
-              </label>
-              <select
-                value={filterType}
-                onChange={(e) => setFilterType(e.target.value)}
-                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-              >
-                <option value="all">Todos los Tipos</option>
-                <option value="residential">Residencial</option>
-                <option value="commercial">Comercial</option>
-                <option value="agricultural">Agrícola</option>
-                <option value="industrial">Industrial</option>
-                <option value="recreational">Recreacional</option>
-              </select>
-            </div>
+
           </div>
         </div>
 
@@ -417,6 +399,9 @@ export default function AdminDashboard() {
         onSuccess={handleEditSuccess}
       />
     </div>
+  );
+}
+
 
     // <div className="space-y-8">
     //   {/* Header */}
@@ -578,5 +563,3 @@ export default function AdminDashboard() {
     //     </div>
     //   </motion.div>
     // </div>
-  );
-}

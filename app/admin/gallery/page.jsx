@@ -374,16 +374,16 @@ const GalleryAdminPage = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between py-6">
             <div>
-              <h1 className="text-3xl font-bold text-gray-900">
+              <h1 className="text-sm md:text-3xl font-bold text-gray-900">
                 Administrar Galería
               </h1>
-              <p className="text-gray-600 mt-1">
+              <p className="text-gray-600 text-xs md:text-sm mt-1">
                 Añade o elimina elementos de tu galería.
               </p>
             </div>
             <motion.button
               onClick={() => setShowAddModal(true)}
-              className="inline-flex items-center px-5 py-2 border border-transparent text-base font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
+              className="inline-flex items-center md:px-5 px-2 py-2 border border-transparent text-xs md:text-base font-medium rounded-lg shadow-sm text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-colors duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >

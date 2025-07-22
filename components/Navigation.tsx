@@ -46,7 +46,7 @@ export default function Navigation() {
   // ];
 
   const navItems = [
-    { href: "/", label: "Inicio", icon: Home },
+    { href: "/", label: "Hogar", icon: Home },
     { href: "/sobre-nosotros", label: "Sobre Nosotros", icon: Users },
     { href: "/solarPanel", label: "Panel solar", icon: MdSolarPower },
     { href: "/servicios", label: "Servicios", icon: Briefcase },
@@ -61,7 +61,9 @@ export default function Navigation() {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
       className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
         scrolled ? "bg-blue-50 backdrop-blur-md" : "bg-transparent"
       }`}
@@ -110,13 +112,24 @@ export default function Navigation() {
         </div>
 
         {/* Mobile Navigation */}
-        <div
-
+        <motion.div
+          initial={false}
+          animate={{
+            height: isOpen ? "auto" : 0,
+            opacity: isOpen ? 1 : 0,
+          }}
           className="md:hidden overflow-hidden bg-black/95 rounded-lg mb-4"
         >
           <div className="py-4 space-y-4">
             {navItems.map((item, index) => (
-              <div
+              <motion.div
+                key={item.href}
+                initial={{ x: -50, opacity: 0 }}
+                animate={{
+                  x: isOpen ? 0 : -50,
+                  opacity: isOpen ? 1 : 0,
+                }}
+                transition={{ delay: index * 0.1 }}
               >
                 <Link
                   href={item.href}
@@ -127,11 +140,11 @@ export default function Navigation() {
                   <item.icon size={20} />
                   <span>{item.label}</span>
                 </Link>
-              </div>
+              </motion.div>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
