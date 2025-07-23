@@ -53,8 +53,78 @@ const BankingLoans = () => {
     },
   };
 
+    const sectionVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.8, ease: "easeOut" },
+    },
+  };
+    const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: "easeOut" },
+    },
+  };
+
+  const affiliatePartners = [
+  {
+    id: "tigo",
+    name: "Tigo",
+    logo: "/images/affiliate/tigo.jpeg",
+    description: "Servicios de telefonía y datos móviles.",
+  },
+  {
+    id: "bp",
+    name: "Banco Promerica",
+    logo: "/images/affiliate/bancoPromerica.jpeg",
+    description: "Servicios bancarios y financieros.",
+  },
+  {
+    id: "bh",
+    name: "Banco Hipotecario",
+    logo: "/images/affiliate/bancoHipotecario.jpeg",
+    description: "Soluciones de crédito y vivienda.",
+  },
+
+  {
+    id: "mg",
+    name: "MoneyGram",
+    logo: "/images/affiliate/moneygram.jpeg",
+    description: "Transferencias internacionales de dinero.",
+  },
+  {
+    id: "bancoagricola",
+    name: "Bancoagricola",
+    logo: "/images/affiliate/bancoagricola.jpeg",
+    description: "Conectividad y entretenimiento.",
+  },
+  {
+    id: "claro",
+    name: "Claro",
+    logo: "/images/affiliate/claro.jpeg",
+    description: "Envíos y recepción de dinero global.",
+  },
+  // Add more partners as needed
+  {
+    id: "cuscatlan",
+    name: "Banco Cuscatlan",
+    logo: "/images/affiliate/cuscatlan.jpeg",
+    description: "Soluciones móviles y de comunicación.",
+  },
+  {
+    id: "movistar",
+    name: "Movistar",
+    logo: "/images/affiliate/movistar.jpeg",
+    description: "Telefonía, internet y televisión.",
+  },
+];
+
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 to-purple-50 font-inter text-gray-800  flex flex-col items-center justify-center">
+    <div className=" bg-gradient-to-br from-indigo-50 to-purple-50 font-inter text-gray-800  flex flex-col items-center justify-center">
       {/* Header Section with Background Image */}
       <motion.div
         className="relative text-center mb-12  w-full py-32 px-4 sm:px-6 lg:px-8 overflow-hidden shadow-xl"
@@ -87,7 +157,7 @@ const BankingLoans = () => {
         </div>
       </motion.div>
 
-      <div className="w-full max-w-4xl bg-white rounded-3xl shadow-xl p-8 sm:p-10 lg:p-12 mb-12">
+      <div className="w-full max-w-6xl bg-white rounded-3xl shadow-xl p-8 sm:p-10 lg:p-12 mb-12">
         {/* Banking Institutions Links */}
         <motion.div
           className="mb-10"
@@ -135,6 +205,46 @@ const BankingLoans = () => {
             </a>
           </div>
         </motion.div>
+
+      {/* Our Partners Section */}
+      <motion.section
+        className="py-16 px-6 md:px-12 bg-[#E6EBF3] mx-auto max-w-6xl  relative z-20"
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+        variants={sectionVariants}
+      >
+        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#203C73] mb-10">
+          Nuestros Afiliados
+        </h2>
+        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+          Trabajamos de la mano con líderes en sus respectivos sectores para
+          garantizar la calidad y eficiencia de cada servicio.
+        </p>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+          {affiliatePartners.map((partner) => (
+            <motion.div
+              key={partner.id}
+              className=" p-6 flex bg-white cursor-pointer hover:bg-gray-100 flex-col items-center text-center shadow-lg rounded-lg"
+              variants={itemVariants}
+            >
+              <img
+                src={partner.logo}
+                alt={partner.name}
+                className="h-24 object-contain mb-4"
+              />
+              <h3 className="font-semibold text-xl mb-2 text-black">
+                {partner.name}
+              </h3>
+              <p className="text-gray-600 text-sm">{partner.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </motion.section>
+
+
+
+
 
         {/* Contact Form */}
         <motion.div
