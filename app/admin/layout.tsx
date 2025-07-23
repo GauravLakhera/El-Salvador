@@ -52,6 +52,7 @@ export default function AdminLayout({
     { href: "/admin/land", label: "Terrenos" },
     { href: "/admin/gallery", label: "Galería" },
     { href: "/admin/contact", label: "Contacto" },
+    { href: "/admin/loan", label: "Solicitudes de préstamo" },
   ];
 
   const isActiveRoute = (href: string) => pathname === href;

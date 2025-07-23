@@ -1,14 +1,30 @@
-"use client"
-import React, { useState } from 'react';
-import { motion } from 'framer-motion';
+"use client";
+
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import {
+  Trash2,
+  X,
+  AlertCircle,
+  Mail,
+  Phone,
+  MessageSquare,
+  User,
+} from "lucide-react"; // Using Lucide React for icons
+
+
+
 
 const BankingLoans = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    phone: '',
+    mobilenumber: '', // Changed from 'phone' to 'mobilenumber' to match schema
     message: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [successMessage, setSuccessMessage] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -18,19 +34,43 @@ const BankingLoans = () => {
     }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // In a real application, you would send this data to a backend server.
-    // For this example, we'll just log it to the console.
-    console.log('Formulario enviado:', formData);
-    // You could also show a confirmation message to the user here.
-    alert('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
-    setFormData({
-      name: '',
-      email: '',
-      phone: '',
-      message: '',
-    });
+    setLoading(true);
+    setSuccessMessage('');
+    setErrorMessage('');
+
+    try {
+      const response = await fetch(
+        "https://el-salvador-backend.onrender.com/api/v1/loans",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      const result = await response.json();
+
+      if (response.ok && result.success) {
+        setSuccessMessage('¡Gracias por tu interés! Nos pondremos en contacto contigo pronto.');
+        setFormData({
+          name: '',
+          email: '',
+          mobilenumber: '',
+          message: '',
+        });
+      } else {
+        setErrorMessage(result.message || 'Error al enviar la solicitud. Por favor, inténtalo de nuevo.');
+      }
+    } catch (error) {
+      console.error('Error submitting loan application:', error);
+      setErrorMessage('Error de red o del servidor al enviar la solicitud. Por favor, inténtalo de nuevo más tarde.');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Animation variants for text
@@ -53,7 +93,7 @@ const BankingLoans = () => {
     },
   };
 
-    const sectionVariants = {
+  const sectionVariants = {
     hidden: { opacity: 0, y: 50 },
     visible: {
       opacity: 1,
@@ -61,7 +101,7 @@ const BankingLoans = () => {
       transition: { duration: 0.8, ease: "easeOut" },
     },
   };
-    const itemVariants = {
+  const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
       opacity: 1,
@@ -69,8 +109,7 @@ const BankingLoans = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
-
-  const affiliatePartners = [
+const affiliatePartners = [
   {
     id: "tigo",
     name: "Tigo",
@@ -122,6 +161,7 @@ const BankingLoans = () => {
     description: "Telefonía, internet y televisión.",
   },
 ];
+
 
   return (
     <div className=" bg-gradient-to-br from-indigo-50 to-purple-50 font-inter text-gray-800  flex flex-col items-center justify-center">
@@ -206,44 +246,41 @@ const BankingLoans = () => {
           </div>
         </motion.div>
 
-      {/* Our Partners Section */}
-      <motion.section
-        className="py-16 px-6 md:px-12 bg-[#E6EBF3] mx-auto max-w-6xl  relative z-20"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, amount: 0.3 }}
-        variants={sectionVariants}
-      >
-        <h2 className="text-3xl md:text-4xl font-bold text-center text-[#203C73] mb-10">
-          Nuestros Afiliados
-        </h2>
-        <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
-          Trabajamos de la mano con líderes en sus respectivos sectores para
-          garantizar la calidad y eficiencia de cada servicio.
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
-          {affiliatePartners.map((partner) => (
-            <motion.div
-              key={partner.id}
-              className=" p-6 flex bg-white cursor-pointer hover:bg-gray-100 flex-col items-center text-center shadow-lg rounded-lg"
-              variants={itemVariants}
-            >
-              <img
-                src={partner.logo}
-                alt={partner.name}
-                className="h-24 object-contain mb-4"
-              />
-              <h3 className="font-semibold text-xl mb-2 text-black">
-                {partner.name}
-              </h3>
-              <p className="text-gray-600 text-sm">{partner.description}</p>
-            </motion.div>
-          ))}
-        </div>
-      </motion.section>
-
-
-
+        {/* Our Partners Section */}
+        <motion.section
+          className="py-16 px-6 md:px-12 bg-[#E6EBF3] mx-auto max-w-6xl  relative z-20"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={sectionVariants}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold text-center text-[#203C73] mb-10">
+            Nuestros Afiliados
+          </h2>
+          <p className="text-center text-gray-600 mb-12 max-w-2xl mx-auto">
+            Trabajamos de la mano con líderes en sus respectivos sectores para
+            garantizar la calidad y eficiencia de cada servicio.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 justify-items-center">
+            {affiliatePartners.map((partner) => (
+              <motion.div
+                key={partner.id}
+                className=" p-6 flex bg-white cursor-pointer hover:bg-gray-100 flex-col items-center text-center shadow-lg rounded-lg"
+                variants={itemVariants}
+              >
+                <img
+                  src={partner.logo}
+                  alt={partner.name}
+                  className="h-24 object-contain mb-4"
+                />
+                <h3 className="font-semibold text-xl mb-2 text-black">
+                  {partner.name}
+                </h3>
+                <p className="text-gray-600 text-sm">{partner.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </motion.section>
 
 
         {/* Contact Form */}
@@ -256,6 +293,18 @@ const BankingLoans = () => {
             ¡Contáctanos para Asesoría!
           </h2>
           <form onSubmit={handleSubmit} className="space-y-6">
+            {successMessage && (
+              <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                <strong className="font-bold">Éxito!</strong>
+                <span className="block sm:inline"> {successMessage}</span>
+              </div>
+            )}
+            {errorMessage && (
+              <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+                <strong className="font-bold">Error!</strong>
+                <span className="block sm:inline"> {errorMessage}</span>
+              </div>
+            )}
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
                 Nombre Completo
@@ -287,14 +336,14 @@ const BankingLoans = () => {
               />
             </div>
             <div>
-              <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+              <label htmlFor="mobilenumber" className="block text-sm font-medium text-gray-700 mb-2">
                 Número de Teléfono (Opcional)
               </label>
               <input
                 type="tel"
-                id="phone"
-                name="phone"
-                value={formData.phone}
+                id="mobilenumber"
+                name="mobilenumber" // Changed name to 'mobilenumber'
+                value={formData.mobilenumber}
                 onChange={handleChange}
                 className="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-base"
                 placeholder="+503 7890-1234"
@@ -320,8 +369,9 @@ const BankingLoans = () => {
               className="w-full bg-blue-700 text-white py-3 px-6 rounded-xl font-semibold text-lg hover:bg-blue-800 transition-colors duration-300 shadow-md hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
+              disabled={loading} // Disable button while loading
             >
-              Enviar Solicitud
+              {loading ? 'Enviando...' : 'Enviar Solicitud'}
             </motion.button>
           </form>
         </motion.div>
