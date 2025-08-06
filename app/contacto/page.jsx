@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-// Removed motion and AnimatePresence imports
 import {
   Phone,
   Mail,
@@ -11,13 +10,12 @@ import {
   Send,
   CheckCircle,
   AlertCircle,
+  Zap,
+  Sun,
+  HardHat,
+  Users,
+  Briefcase,
 } from "lucide-react";
-// Assuming these components are available in your project, otherwise they would need to be defined or removed.
-// import SmoothScroll from '@/components/SmoothScroll';
-// import CustomCursor from '@/components/CustomCursor';
-// import Navigation from '@/components/Navigation';
-// import ParallaxImage from '@/components/ParallaxImage';
-// import AnimatedText from '@/components/AnimatedText';
 
 export default function Contacto() {
   const [formData, setFormData] = useState({
@@ -42,7 +40,7 @@ export default function Contacto() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    setFormError(""); // Clear previous errors
+    setFormError("");
 
     try {
       const response = await fetch(
@@ -67,7 +65,6 @@ export default function Contacto() {
 
       if (response.ok && result.success) {
         setIsSubmitted(true);
-        // Clear form fields
         setFormData({
           nombre: "",
           email: "",
@@ -77,50 +74,106 @@ export default function Contacto() {
           servicio: "construccion",
         });
 
-        // Reset submission state after 3 seconds
         setTimeout(() => {
           setIsSubmitted(false);
         }, 3000);
       } else {
-        // Handle API errors
         setFormError(
           result.message || "Error al enviar la consulta. Inténtalo de nuevo."
         );
-        setIsSubmitted(false); // Ensure form is visible again
+        setIsSubmitted(false);
       }
     } catch (error) {
       console.error("Error al enviar el formulario:", error);
       setFormError("Error de red. No se pudo conectar con el servidor.");
-      setIsSubmitted(false); // Ensure form is visible again
+      setIsSubmitted(false);
     } finally {
       setIsLoading(false);
     }
   };
 
+  // Specialized contact info for different services
+  const specializedContacts = [
+    {
+      icon: HardHat,
+      title: "Experto en Construcciones",
+      description: "Llame para más información",
+      phone: "+503 2113 0984",
+      type: "Teléfono/WhatsApp",
+      color: "blue",
+    },
+    {
+      icon: Zap,
+      title: "Experto en Electricidad",
+      description: "Llame para más información",
+      phone: "+503 7448 6527",
+      additionalPhone: "+503 7474 0536",
+      type: "Teléfono/WhatsApp",
+      color: "yellow",
+    },
+    {
+      icon: Sun,
+      title: "Experto en Tecnología Solar y Servicios Innovativos",
+      description: "Llame para más información",
+      phone: "+503 2113 0984",
+      type: "Teléfono",
+      color: "orange",
+    },
+  ];
+
+  // General services contact info
+  const generalContacts = [
+    {
+      icon: Phone,
+      title: "Información General o Asistencia Técnica",
+      description: "¿Necesita asistencia en algún servicio o reportar algún problema técnico en la website?",
+      phone: "1 800-972-1598",
+      type: "Toll Free",
+      color: "green",
+    },
+    {
+      icon: Mail,
+      title: "Información General o Asistencia Técnica",
+      description: "MoneyGram, Bancos, Telefonía/Recargas, Website y otros servicios",
+      email: "info@ElSalvadorConstructores.com",
+      type: "Email",
+      color: "purple",
+    },
+    {
+      icon: Briefcase,
+      title: "Empleos",
+      description: "Envíenos su CV o datos personales",
+      email: "Empleos@ElSalvadorConstructores.com",
+      phone: "+1 832-225-6273",
+      type: "Email / WhatsApp",
+      color: "indigo",
+    },
+  ];
+
   const contactInfo = [
     {
       icon: Phone,
-      title: "Teléfono",
-      info: "+503 2XXX-XXXX",
+      title: "Teléfono Local",
+      info: "+503 2113 0984",
       description: "Lunes a Viernes, 8:00 AM - 6:00 PM",
+    },
+    {
+      icon: MessageSquare,
+      title: "WhatsApp El Salvador",
+      info: "+503 7474 0536",
+      description: "Disponible las 24 horas",
+    },
+    {
+      icon: MessageSquare,
+      title: "WhatsApp USA",
+      info: "+1 832-225-6273",
+      description: "Disponible las 24 horas",
     },
     {
       icon: Mail,
       title: "Email",
-      info: "info@elsalvadorconstructores.com",
+      info: "info@ElSalvadorConstructores.com",
       description: "Respuesta en menos de 24 horas",
-    },
-    {
-      icon: MapPin,
-      title: "Oficina Principal",
-      info: "San Salvador, El Salvador",
-      description: "Calle Principal #123, Colonia Escalón",
-    },
-    {
-      icon: MessageSquare,
-      title: "WhatsApp",
-      info: "+503 7XXX-XXXX",
-      description: "Disponible las 24 horas",
     },
   ];
 
@@ -128,7 +181,10 @@ export default function Contacto() {
     { value: "construccion", label: "Construcción de Casa" },
     { value: "terreno", label: "Compra de Terreno" },
     { value: "financiamiento", label: "Servicios Financieros" },
+    { value: "electricidad", label: "Servicios de Electricidad" },
+    { value: "solar", label: "Tecnología Solar" },
     { value: "consultoria", label: "Consultoría General" },
+    { value: "empleo", label: "Oportunidades de Empleo" },
     { value: "otro", label: "Otro" },
   ];
 
@@ -148,19 +204,10 @@ export default function Contacto() {
   ];
 
   return (
-    // <SmoothScroll> {/* Commented out external components */}
-    //   <CustomCursor />
-    //   <Navigation />
-
     <main className="bg-blue-50 text-black" translate="no">
       {/* Hero Section */}
       <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
         <div className="absolute inset-0 z-0">
-          {/* <ParallaxImage */}
-          {/* src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1920" */}
-          {/* alt="Contacto" */}
-          {/* className="w-full h-full" */}
-          {/* /> */}
           <img
             src="https://images.pexels.com/photos/259588/pexels-photo-259588.jpeg?auto=compress&cs=tinysrgb&w=1920"
             alt="Contacto"
@@ -170,41 +217,141 @@ export default function Contacto() {
         </div>
 
         <div className="relative z-10 text-center max-w-4xl mx-auto px-4">
-          <h1 // Replaced motion.h1
-            className="text-6xl md:text-8xl font-bold mb-6 text-white"
-          >
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 text-white">
             <span className="text-blue-400">Contáctanos</span>
           </h1>
-
-          <p // Replaced motion.p
-            className="text-xl md:text-2xl text-gray-100 leading-relaxed"
-          >
+          <p className="text-xl md:text-2xl text-gray-100 leading-relaxed">
             Estamos listos para ayudarte a construir la casa de tus sueños en El
             Salvador. Comencemos esta emocionante aventura juntos.
           </p>
         </div>
       </section>
 
-      {/* Contact Info Section */}
-      <section className="py-32 px-4">
+      {/* Specialized Services Section */}
+      <section className="py-32 px-4 bg-white">
         <div className="max-w-7xl mx-auto">
-          {/* <AnimatedText className="text-center mb-20"> */}
           <h2 className="text-5xl font-bold mb-6 text-center">
-            Múltiples Formas de{" "}
-            <span className="text-blue-400">Contactarnos</span>
+            Contacta a Nuestros{" "}
+            <span className="text-blue-400">Expertos Especializados</span>
           </h2>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto text-center">
-            Elige la forma que más te convenga para comenzar tu proyecto de
-            construcción.
+          <p className="text-xl text-gray-700 max-w-3xl mx-auto text-center mb-20">
+            Cada servicio cuenta con especialistas dedicados para brindarte la mejor atención.
           </p>
-          {/* </AnimatedText> */}
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mt-20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {specializedContacts.map((contact, index) => (
+              <div
+                key={index}
+                className="bg-gray-50 p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <contact.icon
+                  className={`text-${contact.color}-500 mx-auto mb-4`}
+                  size={48}
+                />
+                <h3 className="text-xl font-bold mb-3 text-center">{contact.title}</h3>
+                <p className="text-gray-600 text-center mb-4">{contact.description}</p>
+                
+                <div className="space-y-2">
+                  <div className="text-center">
+                    <p className="text-sm text-gray-500">{contact.type}:</p>
+                    <a 
+                      href={`tel:${contact.phone}`}
+                      className={`text-${contact.color}-600 font-semibold hover:underline`}
+                    >
+                      {contact.phone}
+                    </a>
+                  </div>
+                  {contact.additionalPhone && (
+                    <div className="text-center">
+                      <a 
+                        href={`tel:${contact.additionalPhone}`}
+                        className={`text-${contact.color}-600 font-semibold hover:underline`}
+                      >
+                        {contact.additionalPhone}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* General Services Section */}
+      <section className="py-12 px-4 bg-gray-100">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold mb-6 text-center">
+            Servicios{" "}
+            <span className="text-blue-400">Generales y Asistencia</span>
+          </h2>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20">
+            {generalContacts.map((contact, index) => (
+              <div
+                key={index}
+                className="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+              >
+                <contact.icon
+                  className={`text-${contact.color}-500 mx-auto mb-4`}
+                  size={48}
+                />
+                <h3 className="text-xl font-bold mb-3 text-center">{contact.title}</h3>
+                <p className="text-gray-600 text-center mb-4 text-sm">{contact.description}</p>
+                
+                <div className="space-y-2 text-center">
+                  {contact.email && (
+                    <div>
+                      <p className="text-sm text-gray-500">Email:</p>
+                      <a 
+                        href={`mailto:${contact.email}`}
+                        className={`text-${contact.color}-600 font-semibold hover:underline block`}
+                      >
+                        {contact.email}
+                      </a>
+                    </div>
+                  )}
+                  {contact.phone && (
+                    <div>
+                      <p className="text-sm text-gray-500">{contact.type}:</p>
+                      <a 
+                        href={`tel:${contact.phone}`}
+                        className={`text-${contact.color}-600 font-semibold hover:underline`}
+                      >
+                        {contact.phone}
+                      </a>
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Main Contact Info Section */}
+      <section className="py-10 px-4">
+        <div className="max-w-7xl mx-auto">
+          <h2 className="text-5xl font-bold mb-6 text-center">
+            Información de{" "}
+            <span className="text-blue-400">Contacto Principal</span>
+          </h2>
+
+          {/* Address */}
+          <div className="max-w-2xl mx-auto mb-16 text-center bg-white p-8 rounded-lg shadow-lg">
+            <MapPin className="text-blue-500 mx-auto mb-4" size={48} />
+            <h3 className="text-2xl font-bold mb-4">Nuestra Oficina Principal</h3>
+            <div className="text-gray-700">
+              <p className="font-semibold">Código Postal 3210, San Francisco Gotera,</p>
+              <p className="font-semibold">Departamento De Morazán, El Salvador</p>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {contactInfo.map((item, index) => (
-              <div // Replaced motion.div
+              <div
                 key={item.title}
-                className="text-center group cursor-pointer p-8 hover:bg-gray-50 transition-all duration-300 rounded-lg shadow-md"
-                // data-cursor-hover // Commented out external component prop
+                className="text-center group cursor-pointer p-8 hover:bg-gray-50 transition-all duration-300 rounded-lg shadow-md bg-white"
               >
                 <item.icon
                   className="text-blue-400 mx-auto mb-4 group-hover:scale-110 transition-transform"
@@ -222,29 +369,23 @@ export default function Contacto() {
       {/* Contact Form Section */}
       <section className="py-32 px-4 bg-gray-900">
         <div className="max-w-4xl mx-auto">
-          {/* <AnimatedText className="text-center mb-20"> */}
           <h2 className="text-5xl font-bold text-white mb-6 text-center">
             Solicita tu <span className="text-blue-400">Consulta Gratuita</span>
           </h2>
           <p className="text-xl text-gray-400 text-center">
             Completa el formulario y te contactaremos en menos de 24 horas.
           </p>
-          {/* </AnimatedText> */}
-          <div // Replaced motion.div
-            className="relative bg-gray-800 p-8 rounded-lg shadow-xl mt-20"
-          >
+          
+          <div className="relative bg-gray-800 p-8 rounded-lg shadow-xl mt-20">
             {formError && (
               <div className="mb-6 bg-red-500 text-white p-4 rounded-md flex items-center">
                 <AlertCircle className="mr-2" size={20} />
                 <p className="text-sm">{formError}</p>
               </div>
             )}
-            {/* Removed AnimatePresence */}
+            
             {!isSubmitted ? (
-              <form // Replaced motion.form, removed key and animation props
-                onSubmit={handleSubmit}
-                className="space-y-8"
-              >
+              <form onSubmit={handleSubmit} className="space-y-8">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                   <div>
                     <label className="block text-sm font-semibold mb-3 text-gray-300">
@@ -347,7 +488,6 @@ export default function Contacto() {
                     type="submit"
                     disabled={isLoading}
                     className="bg-blue-600 text-white hover:bg-blue-700 px-12 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 flex items-center justify-center mx-auto group rounded-lg"
-                    // data-cursor-hover
                   >
                     {isLoading ? (
                       <>
@@ -383,9 +523,7 @@ export default function Contacto() {
                 </div>
               </form>
             ) : (
-              <div // Replaced motion.div, removed key and animation props
-                className="text-center py-16"
-              >
+              <div className="text-center py-16">
                 <CheckCircle
                   className="text-green-500 mx-auto mb-6"
                   size={64}
@@ -399,15 +537,13 @@ export default function Contacto() {
                 </p>
               </div>
             )}
-          </div>{" "}
-          {/* Removed AnimatePresence closing tag */}
+          </div>
         </div>
       </section>
 
       {/* WhatsApp CTA Section */}
       <section className="py-32 px-4">
         <div className="max-w-4xl mx-auto text-center">
-          {/* <AnimatedText> */}
           <h2 className="text-5xl font-bold mb-8">
             ¿Necesitas Respuesta{" "}
             <span className="text-blue-400">Inmediata</span>?
@@ -417,37 +553,45 @@ export default function Contacto() {
             asesoramiento personalizado sobre tu proyecto de construcción.
           </p>
 
-          <a
-            href="https://wa.me/5037XXXXXXXX" // Example WhatsApp link (replace with actual number)
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-green-600 text-white hover:bg-green-700 px-12 py-6 text-xl font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center group rounded-lg"
-            // data-cursor-hover
-          >
-            <MessageSquare className="mr-3" />
-            Chatear por WhatsApp
-          </a>
-          {/* </AnimatedText> */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href="https://wa.me/50374740536"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-green-600 text-white hover:bg-green-700 px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center group rounded-lg"
+            >
+              <MessageSquare className="mr-3" />
+              WhatsApp El Salvador
+            </a>
+            <a
+              href="https://wa.me/18322256273"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-blue-600 text-white hover:bg-blue-700 px-8 py-4 text-lg font-semibold transition-all duration-300 transform hover:scale-105 inline-flex items-center group rounded-lg"
+            >
+              <MessageSquare className="mr-3" />
+              WhatsApp USA
+            </a>
+          </div>
         </div>
       </section>
 
       {/* Office Hours */}
-      <section className="p-5 bg-gray-100 ">
-        <div className="max-w-7xl mx-auto text-center shadow-lg p-4 rounded-lg">
-          {/* <AnimatedText> */}
+      <section className="py-32 px-4 bg-gray-100">
+        <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-5xl font-bold mb-12">
             Horarios de <span className="text-blue-400">Atención</span>
           </h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="p-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <Clock className="text-blue-400 mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold mb-2">Oficina</h3>
               <p className="text-gray-700">Lunes - Viernes</p>
               <p className="text-gray-700">8:00 AM - 6:00 PM</p>
             </div>
 
-            <div className="p-8">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <MessageSquare
                 className="text-green-500 mx-auto mb-4"
                 size={48}
@@ -457,17 +601,22 @@ export default function Contacto() {
               <p className="text-gray-700">24/7</p>
             </div>
 
-            <div className="p-8">
+            <div className="bg-white p-8 rounded-lg shadow-lg">
               <Mail className="text-purple-500 mx-auto mb-4" size={48} />
               <h3 className="text-xl font-bold mb-2">Email</h3>
               <p className="text-gray-700">Respuesta en</p>
               <p className="text-gray-700">{"< 24 horas"}</p>
             </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-lg">
+              <Phone className="text-green-600 mx-auto mb-4" size={48} />
+              <h3 className="text-xl font-bold mb-2">Toll Free</h3>
+              <p className="text-gray-700">Disponible</p>
+              <p className="text-gray-700">24/7</p>
+            </div>
           </div>
-          {/* </AnimatedText> */}
         </div>
       </section>
     </main>
-    // </SmoothScroll>
   );
 }
